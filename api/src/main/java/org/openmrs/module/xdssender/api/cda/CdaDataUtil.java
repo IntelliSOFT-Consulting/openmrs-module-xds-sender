@@ -1,5 +1,18 @@
 package org.openmrs.module.xdssender.api.cda;
 
+import java.io.ByteArrayInputStream;
+import java.math.BigDecimal;
+import java.net.URLDecoder;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.xml.stream.XMLInputFactory;
+
 import org.apache.commons.lang.StringUtils;
 import org.marc.everest.datatypes.AD;
 import org.marc.everest.datatypes.ADXP;
@@ -70,18 +83,6 @@ import org.openmrs.module.xdssender.XdsSenderConstants;
 import org.openmrs.util.OpenmrsConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.xml.stream.XMLInputFactory;
-import java.io.ByteArrayInputStream;
-import java.math.BigDecimal;
-import java.net.URLDecoder;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * The On-Demand document metadata cda

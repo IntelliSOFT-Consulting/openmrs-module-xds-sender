@@ -7,7 +7,6 @@ import org.openmrs.Patient;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.xdssender.XdsSenderConfig;
 import org.openmrs.module.xdssender.api.cda.ClinicalDocumentBuilder;
-import org.openmrs.module.xdssender.api.hl7.ORM_O01DocumentBuilder;
 import org.openmrs.module.xdssender.api.cda.model.DocumentModel;
 import org.openmrs.module.xdssender.api.model.DocumentData;
 import org.openmrs.module.xdssender.api.model.DocumentInfo;
@@ -22,9 +21,6 @@ public class XdsExportServiceImpl extends BaseOpenmrsService implements XdsExpor
 
 	@Autowired
 	private ClinicalDocumentBuilder clinicalDocBuilder;
-
-	@Autowired
-	private ORM_O01DocumentBuilder ormDocBuilder;
 
 	@Autowired
 	private MessageUtil messageUtil;
@@ -44,12 +40,6 @@ public class XdsExportServiceImpl extends BaseOpenmrsService implements XdsExpor
 			DocumentData clinicalDoc = new DocumentData(clinicalDocInfo, clinicalDocModel.getData());
 
 			DocumentData labOrderDoc = null;
-			DocumentModel labOrderDocModel = ormDocBuilder.buildDocument(encounter);
-			if (labOrderDocModel != null) {
-				DocumentInfo labOrderDocInfo = new DocumentInfo(encounter, patient, labOrderDocModel,
-						"text/plain", config.getProviderRoot());
-				labOrderDoc = new DocumentData(labOrderDocInfo, labOrderDocModel.getData());
-			}
 
 			if (!messageUtil.getPatientIdentifier(clinicalDocInfo).getIdentifierType().getName().equals("ECID")) {
 				throw new Exception("Patient doesn't have ECID Identifier.");

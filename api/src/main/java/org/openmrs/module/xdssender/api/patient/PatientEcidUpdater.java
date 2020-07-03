@@ -1,5 +1,7 @@
 package org.openmrs.module.xdssender.api.patient;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.MethodUtils;
 import org.openmrs.Patient;
@@ -14,15 +16,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.InvocationTargetException;
-
 @Component
 @Transactional
 public class PatientEcidUpdater {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PatientEcidUpdater.class);
 
-    private static final String ECID_UUID = "f54ed6b9-f5b9-4fd5-a588-8f7561a78401";
+    private static final String ECID_UUID = "dfacd928-0370-4315-99d7-6ec1c9f7ae76";
     private static final String CODE_NATIONAL_UUID = "9fb4533d-4fd5-4276-875b-2ab41597f5dd";
     private static final String FETCHER_BEAN_ID = "registrationcore.mpiPatientFetcherPdq";
     private static final String FETCH_PATIENT_METHOD = "fetchMpiPatient";
