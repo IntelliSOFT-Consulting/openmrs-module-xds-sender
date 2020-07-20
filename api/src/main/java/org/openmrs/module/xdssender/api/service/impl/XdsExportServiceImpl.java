@@ -19,6 +19,8 @@ import org.springframework.stereotype.Component;
 @Component("xdsSender.XdsExportService")
 public class XdsExportServiceImpl extends BaseOpenmrsService implements XdsExportService {
 
+	private static final String ECDID = "GODS Number";
+
 	@Autowired
 	private ClinicalDocumentBuilder clinicalDocBuilder;
 
@@ -41,7 +43,7 @@ public class XdsExportServiceImpl extends BaseOpenmrsService implements XdsExpor
 
 			DocumentData labOrderDoc = null;
 
-			if (!messageUtil.getPatientIdentifier(clinicalDocInfo).getIdentifierType().getName().equals("ECID")) {
+			if (!messageUtil.getPatientIdentifier(clinicalDocInfo).getIdentifierType().getName().equals(ECDID)) {
 				throw new Exception("Patient doesn't have ECID Identifier.");
 			}
 

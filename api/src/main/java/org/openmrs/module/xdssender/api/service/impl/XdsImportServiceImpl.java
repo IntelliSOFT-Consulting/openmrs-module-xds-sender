@@ -26,7 +26,7 @@ public class XdsImportServiceImpl implements XdsImportService {
 	
 	private static final Log LOGGER = LogFactory.getLog(XdsImportServiceImpl.class);
 
-	private static final String ECID_NAME = "ECID";
+	private static final String ECID_NAME = "GODS Number";
 	
 	@Autowired
 	private XdsSenderConfig config;

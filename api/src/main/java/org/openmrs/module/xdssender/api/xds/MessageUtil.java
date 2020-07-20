@@ -1,5 +1,15 @@
 package org.openmrs.module.xdssender.api.xds;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
+
 import org.dcm4chee.xds2.common.XDSConstants;
 import org.dcm4chee.xds2.infoset.ihe.ProvideAndRegisterDocumentSetRequestType;
 import org.dcm4chee.xds2.infoset.rim.AssociationType1;
@@ -28,21 +38,12 @@ import org.openmrs.module.xdssender.api.model.DocumentInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.namespace.QName;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
 @Component("xdssender.MessageUtil")
 public class MessageUtil {
 	
-	private static final String ECID_NAME = "ECID";
+	private static final String ECID_NAME = "GODS Number";
 	
-	private static final String CODE_NATIONAL_NAME = "Code National";
+	private static final String CODE_NATIONAL_NAME = "National ID";
 	
 	private static final String CODE_ST_NAME = "Code ST";
 
@@ -134,7 +135,8 @@ public class MessageUtil {
 					lastEncounter = el.getEncounter().getEncounterDatetime();
 			}
 		
-		TS firstEncounterTs = cdaDataUtil.createTS(firstEncounter), lastEncounterTs = cdaDataUtil.createTS(lastEncounter), creationTimeTs = TS
+		TS firstEncounterTs = cdaDataUtil.createTS(firstEncounter), lastEncounterTs = cdaDataUtil.createTS(lastEncounter);
+		TS
 		        .now();
 		
 		firstEncounterTs.setDateValuePrecision(TS.MINUTENOTIMEZONE);

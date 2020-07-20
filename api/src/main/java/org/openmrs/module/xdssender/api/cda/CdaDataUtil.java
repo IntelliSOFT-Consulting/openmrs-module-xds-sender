@@ -264,11 +264,11 @@ public class CdaDataUtil {
 			retVal.setUse(SET.createSET(new CS<PostalAddressUse>(PostalAddressUse.BadAddress)));
 		
 		if (addr.getAddress3() != null)
-			retVal.getPart().add(2, new ADXP(addr.getAddress3(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(addr.getAddress3(), AddressPartType.AddressLine));
 		if (addr.getAddress4() != null)
-			retVal.getPart().add(3, new ADXP(addr.getAddress4(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(addr.getAddress4(), AddressPartType.AddressLine));
 		if (addr.getAddress5() != null)
-			retVal.getPart().add(4, new ADXP(addr.getAddress5(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(addr.getAddress5(), AddressPartType.AddressLine));
 		
 		return retVal;
 		
@@ -402,11 +402,11 @@ public class CdaDataUtil {
 		    location.getStateProvince(), location.getCountry(), location.getPostalCode());
 		
 		if (location.getAddress3() != null)
-			retVal.getPart().add(2, new ADXP(location.getAddress3(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(location.getAddress3(), AddressPartType.AddressLine));
 		if (location.getAddress4() != null)
-			retVal.getPart().add(3, new ADXP(location.getAddress4(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(location.getAddress4(), AddressPartType.AddressLine));
 		if (location.getAddress5() != null)
-			retVal.getPart().add(4, new ADXP(location.getAddress5(), AddressPartType.AddressLine));
+			retVal.getPart().add(0, new ADXP(location.getAddress5(), AddressPartType.AddressLine));
 		
 		if (retVal.getPart().size() == 0)
 			retVal.setNullFlavor(NullFlavor.NoInformation);
