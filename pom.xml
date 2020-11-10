@@ -28,7 +28,7 @@
 	</modules>
 
 	<properties>
-		<openmrsPlatformVersion>2.0.5</openmrsPlatformVersion>
+		<openmrsPlatformVersion>1.12.0</openmrsPlatformVersion>
 		<everestVersion>1.1.0</everestVersion>
 		<dcm4chee-xds2Version>2.0.4</dcm4chee-xds2Version>
 		<javax.servletVersion>3.1.0</javax.servletVersion>
@@ -38,6 +38,7 @@
 		<apacheHttpClientVersion>4.2</apacheHttpClientVersion>
 		<javaCompilerVersion>1.7</javaCompilerVersion>
 		<springWsVersion>2.4.2.RELEASE</springWsVersion>
+		<cxf.version>2.5.0</cxf.version>
 	</properties>
 
 	<dependencyManagement>
@@ -170,6 +171,24 @@
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${javax.servletVersion}</version>
 				<scope>provided</scope>
+			</dependency>
+			<!-- apache cxf -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-frontend-jaxws</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+
+			<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http</artifactId>
+				<version>${cxf.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

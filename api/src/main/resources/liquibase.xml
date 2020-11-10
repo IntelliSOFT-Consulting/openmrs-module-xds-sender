@@ -48,5 +48,21 @@
                                 baseColumnNames="patient_id" referencedTableName="patient"
                                 referencedColumnNames="patient_id" />
    </changeSet>
+   
+   <changeSet id="xdssender-2020-07-21-11-08" author="Moshonk">
+       <preConditions onFail="MARK_RAN">
+           <sqlCheck expectedResult="0">SELECT count(*) FROM global_property WHERE property = 'xdssender.location.sitecode.attribute.uuid' </sqlCheck>
+       </preConditions>
+       <comment>
+          Adding the global property "xdssender.location.sitecode.attribute.uuid"
+       </comment>
+       
+        <insert tableName="global_property">
+            <column name="property" value="xdssender.location.sitecode.attribute.uuid" />
+            <column name="description" value="UUID of the Location sitecode attribute" />
+            <column name="property_value" value="8a845a89-6aa5-4111-81d3-0af31c45c002" />
+            <column name="uuid" value="3ed6a62e-146a-484c-a4c7-8c2968d3ef21" />
+        </insert>
+   </changeSet> 
 
 </databaseChangeLog>

@@ -350,8 +350,12 @@ public class CdaDataUtil {
 	
 	private String getLocationSiteCode(Location location) {
 		String siteCode = "";
+		String siteCodeAttributeUuid = "";
 		for (LocationAttribute attribute : location.getAttributes()) {
-			if (attribute.getAttributeType().getUuid().equals(XdsSenderConstants.LOCATION_SITECODE_ATTRIBUTE_UUID)) {
+			siteCodeAttributeUuid = Context.getAdministrationService().getGlobalProperty(XdsSenderConstants.LOCATION_SITECODE_ATTRIBUTE_UUID_GLOBAL_PROPERTY);
+			siteCodeAttributeUuid = siteCodeAttributeUuid == null ? XdsSenderConstants.LOCATION_SITECODE_ATTRIBUTE_UUID : siteCodeAttributeUuid;
+			
+			if (attribute.getAttributeType().getUuid().equals(siteCodeAttributeUuid)) {
 				siteCode = attribute.getValue().toString();
 			}
 		}
